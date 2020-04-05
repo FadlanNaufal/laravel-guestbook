@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/report-by-date','ReportController@reportbydate')->name('report-date');
+Route::post('/report-by-date','ReportController@reportbydate')->name('report-filter-date');
+
+Route::get('/report-by-type','ReportController@reportbytype')->name('report-type');
+Route::post('/report-by-type','ReportController@reportbytype')->name('report-filter-type');
 
 Route::resources([
     'guest' => 'GuestController'

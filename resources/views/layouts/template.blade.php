@@ -126,6 +126,14 @@
               <li class="{{ (request()->is('home*')) ? 'active' : '' }}"><a class="nav-link" href="{{route('home')}}"><i class="fas fa-home "></i> <span>Dashboard</span></a></li>
               <li class="menu-header">Data Master</li>
               <li class="{{ (request()->is('guest*')) ? 'active' : '' }}"><a class="nav-link" href="{{route('guest.index')}}"><i class="fas fa-users"></i> <span>Guest</span></a></li>
+              <li class="menu-header">Reporting</li>
+              <li class="nav-item dropdown {{ (request()->is('report*')) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-envelope"></i> <span>Report</span></a>
+                <ul class="dropdown-menu">
+                   <li class="{{ (request()->is('report-date')) ? 'active' : '' }}"><a class="nav-link" href="{{route('report-date')}}">Report by Date</a></li>
+                  <li class="{{ (request()->is('report-type')) ? 'active' : '' }}"><a class="nav-link" href="{{route('report-type')}}">Report by Type</a></li>
+                </ul>
+              </li>
             </ul>
         </aside>
       </div>

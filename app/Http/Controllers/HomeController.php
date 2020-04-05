@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Guest;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $parent = Guest::where('guest_type','parent')->count();
+        $alumni = Guest::where('guest_type','alumni')->count();
+        $other = Guest::where('guest_type','other')->count();
+        $today = Guest::whereDate('created_at', Carbon::today())->count();
+        return view('home',compact('parent','alumni','other','today'));
     }
 }
